@@ -6,7 +6,7 @@
 /*   By: tcohen <tcohen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 19:05:59 by tcohen            #+#    #+#             */
-/*   Updated: 2025/01/29 20:40:42 by tcohen           ###   ########.fr       */
+/*   Updated: 2025/01/29 22:13:56 by tcohen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,11 @@ class Contact
         Contact(void)
         {
             index = -1;
-            first_name[0] = '\0';
-            last_name[0] = '\0';
-            nickname[0] = '\0';
-            phone_nb[0] = '\0';
+            first_name = "";
+            last_name = "";
+            nickname = "";
+            phone_nb = "";
+            secret = "";
         }
         void set_f_name(std::string f_name);
         void set_l_name(std::string l_name);
