@@ -6,7 +6,7 @@
 /*   By: tcohen <tcohen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 18:18:46 by tcohen            #+#    #+#             */
-/*   Updated: 2025/01/27 18:36:27 by tcohen           ###   ########.fr       */
+/*   Updated: 2025/01/30 16:40:27 by tcohen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int main(int argc, char **argv)
 
     if (argc != 2)
     {
-        std::cerr << "Error" << std::endl << "Need one phrase as argument" << std::endl;
+        std::cout << "Error" << std::endl << "Need one phrase as argument" << std::endl;
         return (1);
     }
     str = argv[1];

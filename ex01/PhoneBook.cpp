@@ -6,11 +6,16 @@
 /*   By: tcohen <tcohen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 19:06:04 by tcohen            #+#    #+#             */
-/*   Updated: 2025/01/29 22:21:54 by tcohen           ###   ########.fr       */
+/*   Updated: 2025/01/30 16:37:02 by tcohen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
+
+PhoneBook::PhoneBook(void)
+{
+	nb_contact = 0;
+} 
 
 void PhoneBook::set_nb_contact(int nb_c)
 {
@@ -37,7 +42,6 @@ void PhoneBook::add(std::string f_name, std::string l_name, std::string n_name, 
         contacts[0].set_nb(nb);
         contacts[0].set_secret(d_secret);
         contacts[0].set_index(0);
-        nb_contact++;
         return; 
     }
     contacts[nb_contact].set_f_name(f_name);
@@ -51,7 +55,7 @@ void PhoneBook::add(std::string f_name, std::string l_name, std::string n_name, 
 
 std::string format_str(std::string str)
 {
-    std::string str_good;
+    std::string str_good("");
 
     if (str.length() == 10)
         return (str);
@@ -97,7 +101,7 @@ void PhoneBook::print_contact(int index)
 
 int PhoneBook::search(void)
 {
-    std::string index;
+    std::string index("");
 
     if (nb_contact == 0)
     {
@@ -107,6 +111,11 @@ int PhoneBook::search(void)
     print_phonebook();
     if (get_input(index, "\nPlease type index of wanted contact") == 1)
         return (1);
+    if (ft_stoi(index) < 0 || ft_stoi(index) > nb_contact)
+    {
+        std::cout << "Incorrect index\n" << std::endl;
+        return (0);
+    }
     print_contact(ft_stoi(index));
     return (0);
 }

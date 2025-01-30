@@ -6,11 +6,15 @@
 /*   By: tcohen <tcohen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 19:05:56 by tcohen            #+#    #+#             */
-/*   Updated: 2025/01/29 20:40:34 by tcohen           ###   ########.fr       */
+/*   Updated: 2025/01/30 16:36:01 by tcohen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
+
+Contact::Contact() : index(-1), first_name(""), last_name(""), nickname(""), phone_nb(""), secret("") {
+}
+
 
 void Contact::set_f_name(std::string f_name)
 {

@@ -6,11 +6,50 @@
 /*   By: tcohen <tcohen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 19:54:09 by tcohen            #+#    #+#             */
-/*   Updated: 2025/01/29 20:50:26 by tcohen           ###   ########.fr       */
+/*   Updated: 2025/01/30 15:12:45 by tcohen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.hpp"
+
+bool only_alpha(std::string str)
+{
+	int i = 0;
+
+	while(str[i])
+	{
+		if (std::isalpha(str[i]) == 0)
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+bool only_print(std::string str)
+{
+	int i = 0;
+
+	while(str[i])
+	{
+		if (std::isprint(str[i]) == 0)
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+bool only_nb(std::string str)
+{
+	int i = 0;
+
+	while(str[i])
+	{
+		if (std::isdigit(str[i]) == 0)
+			return (0);
+		i++;
+	}
+	return (1);
+}
 
 int get_input(std::string &dest, std::string msg)
 {
@@ -24,7 +63,13 @@ int get_input(std::string &dest, std::string msg)
             dest.clear();
             return (1);
         }
+		if (only_print(dest) == 0)
+		{
+			dest.clear();
+			std::cout << "Error\nPlease use only printable chars" << std::endl;
+			continue;
 
+		}
         if (!dest.empty()) // Si l'input est valide, on sort de la boucle
             return 0;
 
