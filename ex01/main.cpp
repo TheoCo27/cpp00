@@ -6,7 +6,7 @@
 /*   By: tcohen <tcohen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 23:02:15 by tcohen            #+#    #+#             */
-/*   Updated: 2025/02/04 15:35:15 by tcohen           ###   ########.fr       */
+/*   Updated: 2025/02/04 16:30:29 by tcohen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ bool add_alpha(std::string &str, std::string msg)
 {
 	while(true) 
 	{
-		if (get_input(str, msg) == 1)
+		if (Utils::get_input(str, msg) == 1)
 			return (1);
-		if (only_alpha(str) == 0)
+		if (Utils::only_alpha(str) == 0)
 		{
-			std::cout << "Error/nPlease use alphabetic chars only" << std::endl;
+			std::cout << "Error\nPlease use alphabetic chars only" << std::endl;
 			str.clear();
 			continue ;
 		}
@@ -49,18 +49,18 @@ int add_contact(PhoneBook *book)
 		return (1);
 	while(true) 
 	{
-		if (get_input(phone_nb, "Enter phone number\n") == 1)
+		if (Utils::get_input(phone_nb, "Enter phone number\n") == 1)
 			return (1);
-		if (only_nb(phone_nb) == 0)
+		if (Utils::only_nb(phone_nb) == 0)
 		{
-			std::cout << "Error/nPlease use number only" << std::endl;
+			std::cout << "Error\nPlease use number only" << std::endl;
 			phone_nb.clear();
 			continue ;
 		}
 		else
 			break;
 	}
-	if (get_input(secret, "Enter darkest secret\n") == 1)
+	if (Utils::get_input(secret, "Enter darkest secret\n") == 1)
 		return (1);
 	book->add(first_name, last_name, nickname, phone_nb, secret);
 	return (0);
@@ -72,10 +72,13 @@ int main()
     
     while(true)
     {
-        if (get_input(cmd, "Type your command\n") == 1)
+        if (Utils::get_input(cmd, "Type your command\n") == 1)
             return (1);
         if (cmd.compare("SEARCH") == 0)
-            book.search();
+		{
+			book.search();
+			continue;
+		}
         if (cmd.compare("EXIT") == 0)
             return (0);
         if (cmd.compare("ADD") == 0)
@@ -84,7 +87,7 @@ int main()
                 return (1);
         }
 		else
-			std::cout << "Error/nInvalid command" << std::endl;
+			std::cout << "Error\nInvalid command" << std::endl;
     }
     return (0);
 }

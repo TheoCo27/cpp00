@@ -6,13 +6,13 @@
 /*   By: tcohen <tcohen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 19:54:09 by tcohen            #+#    #+#             */
-/*   Updated: 2025/02/04 15:36:50 by tcohen           ###   ########.fr       */
+/*   Updated: 2025/02/04 16:08:33 by tcohen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.hpp"
 
-bool only_alpha(std::string str)
+bool Utils::only_alpha(std::string str)
 {
 	int i = 0;
 
@@ -25,7 +25,7 @@ bool only_alpha(std::string str)
 	return (1);
 }
 
-bool only_print(std::string str)
+bool Utils::only_print(std::string str)
 {
 	int i = 0;
 
@@ -38,7 +38,7 @@ bool only_print(std::string str)
 	return (1);
 }
 
-bool only_nb(std::string str)
+bool Utils::only_nb(std::string str)
 {
 	int i = 0;
 
@@ -51,7 +51,7 @@ bool only_nb(std::string str)
 	return (1);
 }
 
-int get_input(std::string &dest, std::string msg)
+int Utils::get_input(std::string &dest, std::string msg)
 {
     while (true)
     {
@@ -73,12 +73,12 @@ int get_input(std::string &dest, std::string msg)
         if (!dest.empty())
             return 0;
 
-        std::cout << "Error/nInput cannot be empty" << std::endl;
+        std::cout << "Error\nInput cannot be empty" << std::endl;
     }
     return(0);
 }
 
-int ft_stoi(std::string str)
+int Utils::ft_stoi(std::string str)
 {
     int	result;
 	int	sign;

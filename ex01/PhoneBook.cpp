@@ -6,7 +6,7 @@
 /*   By: tcohen <tcohen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 19:06:04 by tcohen            #+#    #+#             */
-/*   Updated: 2025/01/30 16:37:02 by tcohen           ###   ########.fr       */
+/*   Updated: 2025/02/04 16:32:33 by tcohen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,13 +109,13 @@ int PhoneBook::search(void)
         return (0);
     }
     print_phonebook();
-    if (get_input(index, "\nPlease type index of wanted contact") == 1)
+    if (Utils::get_input(index, "\nPlease type index of wanted contact") == 1)
         return (1);
-    if (ft_stoi(index) < 0 || ft_stoi(index) > nb_contact)
+    if (Utils::ft_stoi(index) < 0 || Utils::ft_stoi(index) > nb_contact)
     {
-        std::cout << "Incorrect index\n" << std::endl;
+        std::cout << "Error\nIncorrect index" << std::endl <<std::endl;
         return (0);
     }
-    print_contact(ft_stoi(index));
+    print_contact(Utils::ft_stoi(index));
     return (0);
 }
