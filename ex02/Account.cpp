@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Account.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theog <theog@student.42.fr>                +#+  +:+       +#+        */
+/*   By: tcohen <tcohen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 16:50:21 by tcohen            #+#    #+#             */
-/*   Updated: 2025/02/03 05:20:07 by theog            ###   ########.fr       */
+/*   Updated: 2025/02/04 15:54:48 by tcohen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ Account::Account( int initial_deposit )
 	_accountIndex = _nbAccounts;
 	_amount = initial_deposit;
 	_nbWithdrawals = 0;
+	_nbDeposits = 0;
 	_nbAccounts++;
 	_totalAmount += initial_deposit;
 	_displayTimestamp();
@@ -118,11 +119,10 @@ void	Account::displayStatus( void ) const
 }
 
 void Account::_displayTimestamp(void) {
-    // Obtenir le temps actuel
-    std::time_t now = std::time(nullptr);
+
+    std::time_t now = std::time(NULL); //tps en sec depuis 1970
     std::tm *ltm = std::localtime(&now);
 
-    // Afficher au format [YYYYMMDD_HHMMSS]
     std::cout << "[" 
               << 1900 + ltm->tm_year  // Année (tm_year commence à 1900)
               << (ltm->tm_mon + 1 < 10 ? "0" : "") << ltm->tm_mon + 1  // Mois (0-11)
@@ -136,5 +136,5 @@ void Account::_displayTimestamp(void) {
 
 Account::Account( void )
 {
-
+	return;
 }

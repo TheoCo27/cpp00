@@ -6,7 +6,7 @@
 /*   By: tcohen <tcohen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 23:02:15 by tcohen            #+#    #+#             */
-/*   Updated: 2025/01/30 16:31:24 by tcohen           ###   ########.fr       */
+/*   Updated: 2025/02/04 15:35:15 by tcohen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ bool add_alpha(std::string &str, std::string msg)
 			return (1);
 		if (only_alpha(str) == 0)
 		{
-			std::cout << "Please use alphabetic chars only" << std::endl;
+			std::cout << "Error/nPlease use alphabetic chars only" << std::endl;
 			str.clear();
 			continue ;
 		}
@@ -53,7 +53,7 @@ int add_contact(PhoneBook *book)
 			return (1);
 		if (only_nb(phone_nb) == 0)
 		{
-			std::cout << "Please use number only" << std::endl;
+			std::cout << "Error/nPlease use number only" << std::endl;
 			phone_nb.clear();
 			continue ;
 		}
@@ -84,7 +84,7 @@ int main()
                 return (1);
         }
 		else
-			std::cout << "Invalid command" << std::endl;
+			std::cout << "Error/nInvalid command" << std::endl;
     }
     return (0);
 }

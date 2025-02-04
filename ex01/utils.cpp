@@ -6,7 +6,7 @@
 /*   By: tcohen <tcohen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 19:54:09 by tcohen            #+#    #+#             */
-/*   Updated: 2025/01/30 15:12:45 by tcohen           ###   ########.fr       */
+/*   Updated: 2025/02/04 15:36:50 by tcohen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,11 +53,11 @@ bool only_nb(std::string str)
 
 int get_input(std::string &dest, std::string msg)
 {
-    while (true) // Boucle pour redemander l'input si nécessaire
+    while (true)
     {
         std::cout << msg << std::endl;
 
-        if (!std::getline(std::cin, dest)) // Gestion de Ctrl+D (EOF)
+        if (!std::getline(std::cin, dest))
         {
             std::cout << "Error\nEOF detected, end of program" << std::endl;
             dest.clear();
@@ -70,10 +70,10 @@ int get_input(std::string &dest, std::string msg)
 			continue;
 
 		}
-        if (!dest.empty()) // Si l'input est valide, on sort de la boucle
+        if (!dest.empty())
             return 0;
 
-        std::cout << "Input cannot be empty" << std::endl;
+        std::cout << "Error/nInput cannot be empty" << std::endl;
     }
     return(0);
 }
